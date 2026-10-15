@@ -14,7 +14,12 @@ public class Tarif {
      * @return der Mietpreis in ganzen Euro
      * @throws IllegalArgumentException wenn tage kleiner als 1 oder groesser als 7 ist
      */
+
     public int berechneMietpreis(int tage) {
+        if (tage < 1 || tage > 7) {
+            throw new IllegalArgumentException("Ungültige Anzahl Tage: " + tage);
+        }
+
         if (tage >= 3) {
             return tage * 9;
         }
