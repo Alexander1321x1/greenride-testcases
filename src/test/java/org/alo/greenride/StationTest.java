@@ -24,7 +24,7 @@ class StationTest {
     void nullKennungWirdAbgelehnt() {
         Station station = new Station(
                 "Warschauer Strasse",
-                "Warschauer Str. 12"
+                "Warschauer Str. 12" //test
         );
         station.fahrradAufnehmen(new Fahrrad("GR-001", "City 3", 12.00));
         station.fahrradAufnehmen(new Fahrrad("GR-002", "City 3", 12.00));
