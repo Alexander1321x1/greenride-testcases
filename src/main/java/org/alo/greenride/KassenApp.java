@@ -19,6 +19,16 @@ public class KassenApp {
         rueckgabeBuchen(warschauer, "GR-014");
         rueckgabeBuchen(warschauer, "GR-041");   // vertippt: 41 statt 14
         rueckgabeBuchen(warschauer, "GR-002");
+
+        Kasse kasse = new Kasse();
+        Tarifmodell standard = new Standardtarif();
+        Tarifmodell student = new Studententarif();
+        Tarifmodell wochenende = new Wochenendtarif();
+
+        System.out.println("Ausleihe 1 (Standard, 2 Tage): " + kasse.kassieren(standard, 2) + " Euro");
+        System.out.println("Ausleihe 2 (Standard, 5 Tage): " + kasse.kassieren(standard, 5) + " Euro");
+        System.out.println("Ausleihe 3 (Student, 5 Tage):  " + kasse.kassieren(student, 5) + " Euro");
+        System.out.println("Ausleihe 4 (Wochenende, 2 Tage): " + kasse.kassieren(wochenende, 2) + " Euro");
     }
 
     static void rueckgabeBuchen(Station station, String kennung) {

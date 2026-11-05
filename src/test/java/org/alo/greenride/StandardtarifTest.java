@@ -4,16 +4,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class TarifTest {
-    Tarif tarif = new Tarif();
+public class StandardtarifTest {
+    Standardtarif tarif = new Standardtarif();
 
 
 
 
     @Test
     void ZeroTage(){
-        int preis = tarif.berechneMietpreis(0);
-        assertEquals(0,preis);
+        assertThrows(IllegalArgumentException.class,
+                () -> tarif.berechneMietpreis(0));
     }
 
 
@@ -46,8 +46,8 @@ public class TarifTest {
 
     @Test
     void AchteTagTarif(){
-        int Preis = tarif.berechneMietpreis(8);
-        assertEquals(72,Preis);
+        assertThrows(IllegalArgumentException.class,
+                () -> tarif.berechneMietpreis(8));
     }
 
 
