@@ -27,9 +27,15 @@ public class Station {
      *
      * @param fahrrad das Fahrrad, das hier abgestellt wird
      * @throws IllegalArgumentException wenn fahrrad null ist
+     * @throws IllegalArgumentException wenn an dieser Station bereits ein
+     *         Fahrrad mit derselben Kennung steht
      */
     public void fahrradAufnehmen(Fahrrad fahrrad) {
-        // Zusage aus @throws noch nicht umgesetzt - kommt nach dem Test (Red/Green)
+        // Zusage "fahrrad null" noch nicht umgesetzt - kommt nach dem Test (Red/Green)
+        if (findeFahrrad(fahrrad.getKennung()).isPresent()) {
+            throw new IllegalArgumentException(
+                    "Kennung bereits an Station " + name + " vergeben: " + fahrrad.getKennung());
+        }
         fahrraeder.add(fahrrad);
         fahrrad.setStation(this);
     }
