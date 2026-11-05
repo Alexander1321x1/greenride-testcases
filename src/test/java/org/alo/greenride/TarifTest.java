@@ -6,6 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TarifTest {
     Tarif tarif = new Tarif();
+
+
+
+
+    @Test
+    void ZeroTage(){
+        int preis = tarif.berechneMietpreis(0);
+        assertEquals(0,preis);
+    }
+
+
     @Test
     void ErsteTagTarif(){
         int Preis = tarif.berechneMietpreis(1);
@@ -31,6 +42,14 @@ public class TarifTest {
         int Preis = tarif.berechneMietpreis(5);
         assertEquals(45,Preis);
     }
+
+
+    @Test
+    void AchteTagTarif(){
+        int Preis = tarif.berechneMietpreis(8);
+        assertEquals(72,Preis);
+    }
+
 
 
 

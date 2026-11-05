@@ -50,6 +50,10 @@ public class Station {
      * @throws IllegalArgumentException wenn kennung null oder leer ist
      */
     public Optional<Fahrrad> findeFahrrad(String kennung) {
+        if (kennung == null || kennung.isEmpty()) {
+            throw new IllegalArgumentException("Kennung nicht leer sein!");
+        }
+
         // Zusage aus @throws noch nicht umgesetzt - kommt nach dem Test (Red/Green)
         for (Fahrrad f : fahrraeder) {
             if (f.getKennung().equals(kennung)) {

@@ -14,10 +14,39 @@ public class Tarif {
      * @return der Mietpreis in ganzen Euro
      * @throws IllegalArgumentException wenn tage kleiner als 1 oder groesser als 7 ist
      */
+
     public int berechneMietpreis(int tage) {
+        if (tage < 1 || tage > 7) {
+            throw new IllegalArgumentException("Ungültige Anzahl Tage: " + tage);
+        }
+
         if (tage >= 3) {
             return tage * 9;
         }
         return tage * 10;
     }
+
+
+
+
+    /**
+     * Berechnet die Startgebuehr einer Ausleihe.
+     * Grundgebuehr 2 Euro. Ein Lastenrad kostet das Doppelte.
+     * Wer einen Helm dazu nimmt, zahlt 1 Euro extra.
+     *
+     * @param lastenrad true, wenn ein Lastenrad ausgeliehen wird
+     * @param mitHelm   true, wenn ein Helm dazu ausgeliehen wird
+     * @return die Startgebuehr in ganzen Euro
+     */
+    public int berechneStartgebuehr(boolean lastenrad, boolean mitHelm) {
+        int preis = 2;
+        if (lastenrad) {
+            preis = preis * 2;
+        }
+        if (mitHelm) {
+            preis = preis + 1;
+        }
+        return preis;
+    }
+
 }
